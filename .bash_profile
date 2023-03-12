@@ -1,4 +1,3 @@
-# source /Users/jcastrillon/.zshenv
 # A list of all directories in which to look for commands,
 # scripts and programs                              
 PATH="/usr/local/share/npm/bin:$PATH"                      # NPM

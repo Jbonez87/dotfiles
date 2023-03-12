@@ -1,0 +1,6 @@
+[user]
+	name = NAME
+	email = WORK_EMAIL
+
+[core]
+	sshCommand = "ssh -i ~/.ssh/WORK_SSH_KEY"

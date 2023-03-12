@@ -1,0 +1,13 @@
+[includeIf "gitdir:~/projects/personal/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/projects/work/"]
+  path = ~/.gitconfig-work
+[pull]
+	rebase = false
+[diff]
+	tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[init]
+	defaultBranch = main

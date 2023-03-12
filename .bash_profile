@@ -84,9 +84,6 @@ alias gpum='git pull upstream master'
 # Runs local mongo instance with correct db path
 alias m0ngod='mongod --config /usr/local/etc/mongod.conf'
 
-# Goes directly to nfa
-alias nfa='cd ~/projects/nfa'
-
 # Show's me a detailed git log
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 

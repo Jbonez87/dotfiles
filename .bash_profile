@@ -1,7 +1,6 @@
 # source /Users/jcastrillon/.zshenv
 # A list of all directories in which to look for commands,
-# scripts and programs
-PATH="$HOME/.rbenv/bin:$PATH"                              # RBENV
+# scripts and programs                              
 PATH="/usr/local/share/npm/bin:$PATH"                      # NPM
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"                # Homebrew
 PATH="/usr/local/heroku/bin:$PATH"                         # Heroku Toolbelt
@@ -139,18 +138,15 @@ alias nfajoker='cd ~/projects/nfa-joker'
 
 alias get_homebrew='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
-alias rctrdx='nom I react react-dom prop-types redux react-redux redux-thunk redux-logger'
+alias rctrdx='npm i react react-dom prop-types redux react-redux redux-thunk redux-logger'
 
-alias wp='npm I -D webpack webpack-dev-server babel-core babel-loader babel-preset-env babel-preset-react babel-plugin-transform-object-rest-spread babel-preset-stage-0'
+alias wp='npm i -D webpack webpack-dev-server babel-core babel-loader babel-preset-env babel-preset-react babel-plugin-transform-object-rest-spread babel-preset-stage-0'
 
 alias npminit="npm init -y"
 
 alias abigenerate="sh ~/test.sh"
 
 alias remove_node_modules="cd ~/projects/nfa & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
-
-### Set default rbenv environment location
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 
 
@@ -291,8 +287,6 @@ parse_git_branch() {
 
 }
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 # get current status of git repo
 function parse_git_dirty {
   status=`git status 2>&1 | tee`
@@ -327,10 +321,6 @@ function parse_git_dirty {
     echo ""
   fi
 }
-
-# Add rbenv to bash so that it loads every time you open a terminal
-# echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
-# source ~/.bash_profile
 
 export PS1="\[\033[36;40m\]\u\[\033[32m\] \w \[\033[31m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
 
@@ -438,3 +428,9 @@ fi
 ###-end-npm-completion-###
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 . "$HOME/.cargo/env"
+
+export PNPM_HOME="/Users/jcastrillon/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3

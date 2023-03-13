@@ -73,7 +73,7 @@ alias rs='rails s'
 alias dt='cd ~/Desktop/'
 
 # Goes directly to my projects folder
-alias projects='cd ~/Projects/'
+alias projects='cd ~/projects/'
 
 #Quickly add my applications to my applications folder
 alias afolder='open ~/Applications/'

@@ -1,6 +1,7 @@
 [user]
-  name = USERNAME
+  name = NAME
   email = EMAIL
+  username = USERNAME
 
 [core]
 	sshCommand = "ssh -i ~/.ssh/PERSONAL_SSH_KEY"

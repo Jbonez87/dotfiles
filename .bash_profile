@@ -1,22 +1,15 @@
 # A list of all directories in which to look for commands,
 # scripts and programs                              
-PATH="/usr/local/share/npm/bin:$PATH"                      # NPM
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"                # Homebrew
-PATH="/usr/local/heroku/bin:$PATH"                         # Heroku Toolbelt
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
-# export ANDROID_HOME=/Users/johnny/Library/Android/sdk
-# export PATH=${PATH}:${ANDROID_HOME}/tools
-# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-# export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # =================
 # History
 # =================
 
 # http://jorge.fbarr.net/2011/03/24/making-your-bash-history-more-efficient/
 # Larger bash history (allow 32³ entries; default is 500)
-# export PATH=/Library/PostgreSQL/9.5/bin:$PATH
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 
@@ -83,6 +76,9 @@ alias gpum='git pull upstream master'
 
 # Runs local mongo instance with correct db path
 alias m0ngod='mongod --config /usr/local/etc/mongod.conf'
+
+# Goes directly to nfa
+alias nfa='cd ~/projects/nfa'
 
 # Show's me a detailed git log
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
@@ -251,8 +247,6 @@ function get_global_packages() {
 # Tab Improvements
 # =================
 
-## PJ: Might not need?
-
 ## Tab improvements
 bind 'set completion-ignore-case on'
 # # make completions appear immediately after pressing TAB once
@@ -262,18 +256,6 @@ bind 'TAB: menu-complete'
 # =================
 # Sourced Scripts
 # =================
-
-# get current branch in git repo
-# function parse_git_branch() {
-#   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-#   if [ ! "${BRANCH}" == "" ]
-#   then
-#     STAT=`parse_git_dirty`
-#     echo "on [${BRANCH}${STAT}]"
-#   else
-#     echo ""
-#   fi
-# }
 
 shopt -s checkwinsize
 
@@ -336,11 +318,12 @@ export NODE_REPL_HISTORY_FILE=~/.node_repl_history
 # export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # alias ls='ls -GFh'
-export PATH=$HOME/Library/Python/3.6/bin:$PATH
+# export PATH=$HOME/Library/Python/3.6/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export GOOGLE_API_KEY=AIzaSyCG16q1DvsxNT54N7jwpECdmrrAyvn2EvI
 export PATH="/usr/local/bin:$PATH"
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 ###-begin-npm-completion-###
@@ -412,7 +395,6 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-export PATH="${HOME}/.pyenv/shims:${PATH}"
 . "$HOME/.cargo/env"
 
 export PNPM_HOME="/Users/jcastrillon/Library/pnpm"

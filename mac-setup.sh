@@ -12,6 +12,9 @@ brew bundle
 echo "Installing NVM!"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
+echo "Installing Rust!"
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
 export NVM_DIR=$HOME/.nvm;
 source $NVM_DIR/nvm.sh;
 

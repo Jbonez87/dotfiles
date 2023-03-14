@@ -315,15 +315,11 @@ export PS1="\[\033[36;40m\]\u\[\033[32m\] \w \[\033[31m\]\`ruby -e \"print (%x{g
 
 export HOMEBREW_EDITOR=nano
 export NODE_REPL_HISTORY_FILE=~/.node_repl_history
-# export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-# alias ls='ls -GFh'
-# export PATH=$HOME/Library/Python/3.6/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export GOOGLE_API_KEY=AIzaSyCG16q1DvsxNT54N7jwpECdmrrAyvn2EvI
 export PATH="/usr/local/bin:$PATH"
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 ###-begin-npm-completion-###

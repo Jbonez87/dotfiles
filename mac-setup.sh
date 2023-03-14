@@ -48,13 +48,12 @@ ssh-add ~/.ssh/work
 
 echo "Creating SSH config!"
 
-touch ~/.ssh/config-test
+touch ~/.ssh/config
 
 echo "What is your username for personal projects?"
-
 read -p "Personal username is: " personal_username
 
-cat << EOF >> ~/.ssh/config-test
+cat << EOF >> ~/.ssh/config
 Host ssh.dev.azure.com
 HostName ssh.dev.azure.com
 User git

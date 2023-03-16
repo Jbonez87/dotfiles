@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
+
 cd ~
 mkdir ~/projects
 
@@ -7,7 +9,24 @@ echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing core homebrew packages!"
-brew bundle
+
+if [ -f $HOME/Brewfile.zip ]; then
+  echo "Brewfile.zip already exists"
+  cd ~
+  [ ! -f $HOME/Brewfile ] && unzip ~/Brewfile.zip
+  brew bundle
+elif [ -f $HOME/Brewfile ]; then
+  echo "Brewfile already exists"
+  cd ~
+  [ ! -f $HOME/Brewfile.zip ] && echo "No Brewfile.zip! Running brew bundle!"
+  brew bundle
+else
+  echo "Copying over Brewfile!"
+  cp $SCRIPTDIR/Brewfile.zip ~
+  cd ~
+  unzip ~/Brewfile.zip
+  brew bundle
+fi
 
 echo "Installing NVM!"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash

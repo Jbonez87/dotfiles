@@ -72,18 +72,26 @@ read -p "Email address is: " email
 
 echo "Follow the prompts to save your ssh key. You can choose whether or not to add a password."
 
-ssh-keygen -t ed25519 -C "$email"
+if [ -f $HOME/.ssh/id_ed25519 ]; then
+  echo "id_ed25519 ssh key already exists!"
+else
+  ssh-keygen -t ed25519 -C "$email"
 
-echo "Adding your personal ssh key to your identity!"
-ssh-add ~/.ssh/id_ed25519
+  echo "Adding your personal ssh key to your identity!"
+  ssh-add ~/.ssh/id_ed25519
+fi
 
 echo "What is your work email?"
 read -p "Work email is: " work_email
 
-ssh-keygen -t ed25519 -C "$work_email" -f "$HOME/.ssh/work"
+if [ -f $HOME/.ssh/work ]; then
+  echo "Work ssh key already exists!"
+else
+  ssh-keygen -t ed25519 -C "$work_email" -f "$HOME/.ssh/work"
 
-echo "Adding your personal ssh key to your identity!"
-ssh-add ~/.ssh/work
+  echo "Adding your personal ssh key to your identity!"
+  ssh-add ~/.ssh/work
+fi
 
 echo "Creating SSH config!"
 

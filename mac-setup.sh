@@ -87,26 +87,29 @@ ssh-add ~/.ssh/work
 
 echo "Creating SSH config!"
 
-touch ~/.ssh/config
-
 echo "What is your username for personal projects?"
 read -p "Personal username is: " personal_username
 
-cat << EOF >> ~/.ssh/config
-Host ssh.dev.azure.com
-HostName ssh.dev.azure.com
-User git
-AddKeysToAgent yes
-UseKeychain yes
-IdentityFile ~/.ssh/work
+if [ -f $HOME/.ssh/config ]; then
+  echo "SSH config already exists!"
+else
+  touch ~/.ssh/config
+  cat << EOF >> ~/.ssh/config
+  Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/work
 
-Host github.com-$personal_username
-HostName github.com
-User git
-AddKeysToAgent yes
-UseKeychain yes
-IdentityFile ~/.ssh/id_ed25519
+  Host github.com-$personal_username
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
 EOF
+fi
 
 echo "Creating .gitconfig files!"
 
@@ -114,47 +117,58 @@ echo "What is your full name?"
 
 read -p "Name is: " entered_name
 
-touch ~/.gitconfig-personal
-
-cat << EOF >> ~/.gitconfig-personal
-[user]
-  name = $entered_name
-  email = $email
-  username = $personal_username
-[core]
-	sshCommand = "ssh -i ~/.ssh/id_ed25519"
-[init]
-	defaultBranch = main
+if [ -f $HOME/.gitconfig-personal ]; then
+  echo ".gitconfig-personal already exists!"
+else
+  touch ~/.gitconfig-personal
+  cat << EOF >> ~/.gitconfig-personal
+  [user]
+    name = $entered_name
+    email = $email
+    username = $personal_username
+  [core]
+    sshCommand = "ssh -i ~/.ssh/id_ed25519"
+  [init]
+    defaultBranch = main
 EOF
+fi
 
-touch ~/.gitconfig-work
+if [ -f $HOME/.gitconfig-work ]; then
+  echo ".gitconfig-work already exists!"
+else
+  touch ~/.gitconfig-work
 
-cat << EOF >> ~/.gitconfig-work
-[user]
-  name = $entered_name
-  email = $work_email
-[core]
-	sshCommand = "ssh -i ~/.ssh/work"
-[init]
-	defaultBranch = main
+  cat << EOF >> ~/.gitconfig-work
+  [user]
+    name = $entered_name
+    email = $work_email
+  [core]
+    sshCommand = "ssh -i ~/.ssh/work"
+  [init]
+    defaultBranch = main
 EOF
+fi
 
-touch ~/.gitconfig
+if [ -f $HOME/.gitconfig ]; then
+  echo ".gitconfig already exists!"
+else
+  touch ~/.gitconfig
 
-cat << EOF >> ~/.gitconfig
-[includeIf "gitdir:~/projects/personal/"]
-  path = ~/.gitconfig-personal
-[includeIf "gitdir:~/projects/work/"]
-  path = ~/.gitconfig-work
-[pull]
-	rebase = false
-[diff]
-	tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  cat << EOF >> ~/.gitconfig
+  [includeIf "gitdir:~/projects/personal/"]
+    path = ~/.gitconfig-personal
+  [includeIf "gitdir:~/projects/work/"]
+    path = ~/.gitconfig-work
+  [pull]
+    rebase = false
+  [diff]
+    tool = vscode
+  [difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
-[init]
-	defaultBranch = main
+  [init]
+    defaultBranch = main
 EOF
+fi
 
 echo "Mac setup complete!"

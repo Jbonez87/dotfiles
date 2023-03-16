@@ -5,8 +5,15 @@ SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 cd ~
 mkdir ~/projects
 
-echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+which -s brew
+if [[ $? != 0 ]]; then
+  echo "Brew not found"
+  echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  echo "Updating Homebrew!"
+  brew update
+fi
 
 echo "Installing core homebrew packages!"
 

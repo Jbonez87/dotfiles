@@ -5,8 +5,7 @@ SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 cd ~
 mkdir ~/projects
 
-which -s brew
-if [[ $? != 0 ]]; then
+if ! [ -x "$(command -v brew)" ]; then
   echo "Brew not found"
   echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -35,11 +34,19 @@ else
   brew bundle
 fi
 
-echo "Installing NVM!"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+if ! [ -x "$(command -v nvm)" ]; then
+  echo "Installing NVM!"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+else
+  echo "NVM already installed!"
+fi
 
-echo "Installing Rust!"
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+if ! [ -x "$(command -v rustc)" ]; then
+  echo "Installing Rust!"
+  curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+else
+  echo "Rust already installed!"
+fi
 
 export NVM_DIR=$HOME/.nvm;
 source $NVM_DIR/nvm.sh;
@@ -50,10 +57,13 @@ command -v nvm
 echo "Verifying nvm version"
 nvm --version
 
-echo "Installing node!"
-nvm install node
-
-node --version
+if ! [ -x "$(command -v node)" ]; then
+  echo "Installing node!"
+  nvm install node
+else
+  echo "Node already installed!"
+  node --version
+fi
 
 echo "Creating your SSH keys! Please follow the prompts."
 

@@ -14,7 +14,7 @@ else
   brew update
 fi
 
-echo "Installing core homebrew packages!"
+echo "Checking for Brewfile and installing core packages!"
 
 if [ -f $HOME/Brewfile ]; then
   echo "Brewfile already exists"

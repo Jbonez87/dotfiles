@@ -4,7 +4,9 @@ These are a series of configuration files and setup scripts that install package
 
 1. Create a `~/projects` directory for you
 2. Install Homebrew and run `brew bundle`
+
    a. If you already have a `Brewfile` in your home directory, answer `yes` to run `brew bundle` or `no` to skip.
+
 3. Install `nvm`
 4. Install `rust`
 5. Create your `ssh keys` and `ssh configs` if they don't already exist.

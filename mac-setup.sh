@@ -16,21 +16,17 @@ fi
 
 echo "Installing core homebrew packages!"
 
-if [ -f $HOME/Brewfile.zip ]; then
-  echo "Brewfile.zip already exists"
-  cd ~
-  [ ! -f $HOME/Brewfile ] && unzip ~/Brewfile.zip
-  brew bundle
-elif [ -f $HOME/Brewfile ]; then
+if [ -f $HOME/Brewfile ]; then
   echo "Brewfile already exists"
   cd ~
-  [ ! -f $HOME/Brewfile.zip ] && echo "No Brewfile.zip! Running brew bundle!"
-  brew bundle
+  echo "Run brew bundle?"
+  read -p "Answer is: " answer
+  [[ $answer == "Yes" || $answer == "y" || $answer == "Y" || $answer == "yes" ]] && brew bundle
+  echo "Brewfile processed!"
 else
   echo "Copying over Brewfile!"
-  cp $SCRIPTDIR/Brewfile.zip ~
-  cd ~
-  unzip ~/Brewfile.zip
+  unzip $SCRIPTDIR/Brewfile.zip
+  mv $SCRIPTDIR/Brewfile ~
   brew bundle
 fi
 

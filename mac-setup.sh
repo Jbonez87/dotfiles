@@ -19,7 +19,7 @@ echo "Installing core homebrew packages!"
 if [ -f $HOME/Brewfile ]; then
   echo "Brewfile already exists"
   cd ~
-  echo "Run brew bundle?"
+  echo "Run brew bundle? (Please answer Yes, yes, y or Y to run)"
   read -p "Answer is: " answer
   [[ $answer == "Yes" || $answer == "y" || $answer == "Y" || $answer == "yes" ]] && brew bundle
   echo "Brewfile processed!"

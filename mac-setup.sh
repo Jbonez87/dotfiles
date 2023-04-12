@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 

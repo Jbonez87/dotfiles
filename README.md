@@ -52,3 +52,15 @@ The `windows-setup.bat` script will do the following:
 ## Gitconfigs
 
 The (gitconfigs)[./gitconfigs] directory has the base, personal and work **gitconfig** templates. Feel free to change these as you see fit, but be aware that the [mac-setup.sh](./mac-setup.sh) file automatically creates these files if they don't already exist on your machine.
+
+## Gitignores
+
+The (gitignores)[./gitignores] directory has `node` and `rust` gitignore templates.
+
+## Scripts
+
+This is where all **Mac** and **Windows** app installation scripts will eventually go. Currently there is only support for **Mac Users**.
+
+## Shells
+
+This is where the `bash_profile`, `zshrc` and `zshenv` templates are stored. In the future, logic will be added to move these to your home directory where they can be sourced in the terminal depending on your shell preference.

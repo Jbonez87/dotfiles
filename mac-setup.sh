@@ -10,7 +10,7 @@ if [[ $response == "Yes" || $response == "y" || $response == "Y" || $response ==
   echo "Running app defaults script!"
   bash $DEFAULT_APPS_SCRIPT
 else
-  echo "Continuing on then."
+  echo "Moving on then."
 fi
 
 cd ~

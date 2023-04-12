@@ -5,6 +5,7 @@
 1. [Introduction](#introduction)
 2. [Mac Users](#mac-users)
 3. [Windows Users](#windows-users)
+4. [Gitconfigs](#gitconfigs)
 
 ## Introduction
 
@@ -36,3 +37,7 @@ The `windows-setup.bat` script will do the following:
 2. Install `git` and [Git Bash](https://gitforwindows.org/)
 3. Install `nvm` and `node`
 4. Install `rust`
+
+## Gitconfigs
+
+The (gitconfigs)[./gitconfigs] directory has the base, personal and work **gitconfig** templates. Feel free to change these as you see fit, but be aware that the [mac-setup.sh](./mac-setup.sh) file automatically creates these files if they don't already exist on your machine.

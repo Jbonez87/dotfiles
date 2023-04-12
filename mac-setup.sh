@@ -1,6 +1,17 @@
 #!/bin/env bash
 
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
+DEFAULT_APPS_SCRIPT="./scripts/default-apps.sh"
+
+echo "Run app defaults script first? (Please answer Yes, yes, y or Y to run)"
+read -p "Response is: " response
+
+if [[ $response == "Yes" || $response == "y" || $response == "Y" || $response == "yes" ]]; then
+  echo "Running app defaults script!"
+  bash $DEFAULT_APPS_SCRIPT
+else
+  echo "Continuing on then."
+fi
 
 cd ~
 

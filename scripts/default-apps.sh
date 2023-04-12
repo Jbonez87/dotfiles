@@ -138,3 +138,13 @@ else
     hdiutil unmount "/Volumes/Discord"
     rm discord.dmg
 fi
+
+# Check if Zoom is installed
+if [ -d "/Applications/zoom.us.app" ]; then
+    echo "Zoom is already installed."
+else
+    echo "Installing Zoom!"
+    curl -L -o /tmp/zoomusInstaller.pkg "https://zoom.us/client/latest/ZoomInstallerIT.pkg"
+    sudo installer -pkg /tmp/zoomusInstaller.pkg -target /
+    rm /tmp/zoomusInstaller.pkg
+fi

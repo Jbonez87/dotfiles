@@ -6,6 +6,10 @@
 2. [Mac Users](#mac-users)
 3. [Windows Users](#windows-users)
 4. [Gitconfigs](#gitconfigs)
+5. [Gitignores](#gitignores)
+6. [Scripts](#scripts)
+7. [Shells](#shells)
+8. [VS Code](#vs-code)
 
 ## Introduction
 
@@ -64,3 +68,7 @@ This is where all **Mac** and **Windows** app installation scripts will eventual
 ## Shells
 
 This is where the `bash_profile`, `zshrc` and `zshenv` templates are stored. In the future, logic will be added to move these to your home directory where they can be sourced in the terminal depending on your shell preference.
+
+## VS Code
+
+All VS Code snippets, settings and launch JSON files will be stored here.

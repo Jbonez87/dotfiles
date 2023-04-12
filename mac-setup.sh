@@ -3,7 +3,13 @@
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 
 cd ~
-mkdir ~/projects
+
+if ! [ -d "${HOME}/projects" ]; then
+  echo "Creating projects directory!"
+  mkdir ~/projects
+else
+  echo "~/projects directory already exists!"
+fi
 
 if ! [ -x "$(command -v brew)" ]; then
   echo "Brew not found"

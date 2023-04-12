@@ -303,6 +303,13 @@ function parse_git_dirty {
 autoload -U colors && colors
 export PROMPT="%{$fg[cyan]%}%n%{$fg[green]%} %~ %{$fg[red]%}$(ruby -e "print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')")%{$fg[white]%}$ %{$reset_color%}"
 
+# autoload -Uz vcs_info && precmd() { vcs_info }
+
+# setopt PROMPT_SUBST
+
+# PROMPT='%F{cyan}%n%f %F{green}%~%f %F{yellow}$vcs_info_msg_0_%%F{magenta}%F{178}$ %f'
+
+
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 

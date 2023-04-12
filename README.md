@@ -13,7 +13,11 @@ These are a series of configuration files and setup scripts that install package
 
 ## Mac Users
 
-To run the `mac-setup.sh` script, enter the following command: `sh mac-setup.sh`.
+To run the `mac-setup.sh` script:
+
+1. Open your terminal
+2. cd to the directory you've cloned this repo into.
+3. Enter the following command: `sh mac-setup.sh`.
 
 The `mac-setup.sh` script will do the following:
 

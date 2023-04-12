@@ -11,8 +11,14 @@ elif [ $preferred == "zsh" ]; then
   chsh -s /bin/zsh
 fi
 
-# Install Xcode Command Line Tools
-xcode-select --install
+# Check if xcode-select is installed
+if xcode-select --version >/dev/null 2>&1; then
+    echo "xcode-select is already installed."
+else
+    echo "Installing xcode-select!"
+    # Install Xcode Command Line Tools
+    xcode-select --install
+fi
 
 # Check if Chrome is installed
 if mdfind "kMDItemContentType == com.apple.application-bundle && kMDItemDisplayName == 'Google Chrome.app'" | grep -q "Google Chrome.app"; then

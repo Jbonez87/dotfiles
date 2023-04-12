@@ -22,14 +22,18 @@ To run the `mac-setup.sh` script:
 The `mac-setup.sh` script will do the following:
 
 1. Create a `~/projects` directory for you
-2. Install Homebrew and run `brew bundle`
+2. Optionally runs the [default-apps](./scripts/default-apps.sh) script.
+
+   a. Answer `yes` to run the `default-apps.sh` script.
+
+3. Install Homebrew and run `brew bundle`
 
    a. If you already have a `Brewfile` in your home directory, answer `yes` to run `brew bundle` or `no` to skip.
 
-3. Install `nvm` and `node`
-4. Install `rust`
-5. Create your `ssh keys` and `ssh configs` if they don't already exist.
-6. Create your personal, work and global `.gitconfig` files.
+4. Install `nvm` and `node`
+5. Install `rust`
+6. Create your `ssh keys` and `ssh configs` if they don't already exist.
+7. Create your personal, work and global `.gitconfig` files.
 
 ## Windows Users
 

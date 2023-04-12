@@ -29,7 +29,10 @@ The `mac-setup.sh` script will do the following:
 
 ## Windows Users
 
-To run the `windows-setup.bat` file, cd to the directory where you've cloned this repo to and enter the following command: `windows-setup.bat`
+To run the `windows-setup.bat` file:
+
+1. Open your `cmd` terminal using `Win + R`
+2. cd to the directory where you've cloned this repo and enter the following command: `windows-setup.bat`
 
 The `windows-setup.bat` script will do the following:
 

@@ -63,7 +63,7 @@ The (gitignores)[./gitignores] directory has `node` and `rust` gitignore templat
 
 ## Scripts
 
-This is where all **Mac** and **Windows** app installation scripts will eventually go. Currently there is only support for **Mac Users**.
+This is where all **Mac** and **Windows** app installation scripts will eventually go. Currently there is more support for **Mac Users**, but more scripts will be made for **Windows Users** in the future.
 
 ## Shells
 

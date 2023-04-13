@@ -55,7 +55,7 @@ The `windows-setup.bat` script will do the following:
 
 ## Gitconfigs
 
-The (gitconfigs)[./gitconfigs] directory has the base, personal and work **gitconfig** templates. Feel free to change these as you see fit, but be aware that the [mac-setup.sh](./mac-setup.sh) file automatically creates these files if they don't already exist on your machine.
+The [gitconfigs](./gitconfigs) directory has the base, personal and work **gitconfig** templates. Feel free to change these as you see fit, but be aware that the [mac-setup.sh](./mac-setup.sh) file automatically creates these files if they don't already exist on your machine.
 
 ## Gitignores
 

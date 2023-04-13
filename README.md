@@ -59,7 +59,7 @@ The (gitconfigs)[./gitconfigs] directory has the base, personal and work **gitco
 
 ## Gitignores
 
-The (gitignores)[./gitignores] directory has `node` and `rust` gitignore templates.
+The [gitignores](./gitignores) directory has `node` and `rust` gitignore templates.
 
 ## Scripts
 

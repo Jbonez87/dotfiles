@@ -67,7 +67,7 @@ This is where all **Mac** and **Windows** app installation scripts will eventual
 
 ## Shells
 
-This is where the `bash_profile`, `zshrc` and `zshenv` templates are stored. In the future, logic will be added to move these to your home directory where they can be sourced in the terminal depending on your shell preference.
+This is where the [bash_profile](./shells/bash/.bash_profile), [zshrc](./shells/zsh/.zshrc) and [zshenv](./shells/zsh/.zshenv) templates are stored. In the future, logic will be added to move these to your home directory where they can be sourced in the terminal depending on your shell preference.
 
 ## VS Code
 

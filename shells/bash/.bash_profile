@@ -131,6 +131,8 @@ alias wp='npm i -D webpack webpack-dev-server babel-core babel-loader babel-pres
 
 alias npminit="npm init -y"
 
+alias remove_node_modules="cd ~/projects & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
+
 # =================
 # Functions
 # =================

@@ -71,9 +71,6 @@ alias gpum='git pull upstream master'
 # Runs local mongo instance with correct db path
 alias m0ngod='mongod --config /usr/local/etc/mongod.conf'
 
-# Goes directly to nfa
-alias nfa='cd ~/projects/nfa'
-
 # Show's me a detailed git log
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 
@@ -120,8 +117,6 @@ alias reload="clear; source ~/.bash_profile"
 alias chrome='open -a Google Chrome'
 alias safari='open -a Safari'
 
-alias nfajoker='cd ~/projects/nfa-joker'
-
 alias get_homebrew='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
 alias rctrdx='npm i react react-dom prop-types redux react-redux redux-thunk redux-logger'
@@ -130,11 +125,7 @@ alias wp='npm i -D webpack webpack-dev-server babel-core babel-loader babel-pres
 
 alias npminit="npm init -y"
 
-alias abigenerate="sh ~/test.sh"
-
-alias remove_node_modules="cd ~/projects/nfa & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
-
-
+alias remove_node_modules="cd ~/projects & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
 
 # =================
 # Functions

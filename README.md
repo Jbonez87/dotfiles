@@ -21,7 +21,7 @@ To run the `mac-setup.sh` script:
 
 1. Open your terminal
 2. cd to the directory you've cloned this repo into.
-3. Enter the following command: `sh ./scripts/mac/mac-setup.sh`.
+3. Enter the following command: `bash ./scripts/mac/mac-setup.sh`.
 
 The `mac-setup.sh` script will do the following:
 

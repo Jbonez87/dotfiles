@@ -312,6 +312,8 @@ function deleteAllBranchesExceptMainForce() {
 
 setopt nocaseglob
 
+setopt cdspell
+
 autoload -U colors && colors
 export PROMPT="%{$fg[cyan]%}%n%{$fg[green]%} %~ %{$fg[red]%}$(ruby -e "print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')")%{$fg[white]%}$ %{$reset_color%}"
 

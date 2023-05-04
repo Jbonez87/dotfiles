@@ -32,6 +32,8 @@ alias ~='cd ~'
 # A better ls
 alias ll='ls -FGlAhp'
 
+alias ls='ls -GFh'
+
 # A more detailed ls command
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
@@ -315,7 +317,7 @@ export PROMPT="%{$fg[cyan]%}%n%{$fg[green]%} %~ %{$fg[red]%}$(ruby -e "print (%x
 
 export HOMEBREW_EDITOR=nano
 export NODE_REPL_HISTORY_FILE=~/.node_repl_history
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=GxFxCxDxBxegedabagaced
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

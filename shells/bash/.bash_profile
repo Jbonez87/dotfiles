@@ -38,6 +38,8 @@ alias ~='cd ~'
 # A better ls
 alias ll='ls -FGlAhp'
 
+alias ls='ls -GFh'
+
 # A more detailed ls command
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
@@ -310,7 +312,7 @@ export PS1='\[\033[36m\]\u\[\033[0m\] \[\033[32m\]\w\[\033[0m\] \[\033[38;5;88m\
 
 export HOMEBREW_EDITOR=nano
 export NODE_REPL_HISTORY_FILE=~/.node_repl_history
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=GxFxCxDxBxegedabagaced
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

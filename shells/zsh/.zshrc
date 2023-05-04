@@ -293,6 +293,23 @@ function parse_git_dirty {
   fi
 }
 
+function deleteAllBranchesExceptMaster() {
+    git checkout master
+    git branch | grep -v '^*' | xargs git branch -d 
+}
+function deleteAllBranchesExceptMasterForce() {
+    git checkout master
+    git branch | grep -v '^*' | xargs git branch -D
+}
+function deleteAllBranchesExceptMain() {
+    git checkout master
+    git branch | grep -v '^*' | xargs git branch -d 
+}
+function deleteAllBranchesExceptMainForce() {
+    git checkout master
+    git branch | grep -v '^*' | xargs git branch -D
+}
+
 autoload -U colors && colors
 export PROMPT="%{$fg[cyan]%}%n%{$fg[green]%} %~ %{$fg[red]%}$(ruby -e "print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')")%{$fg[white]%}$ %{$reset_color%}"
 

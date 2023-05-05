@@ -164,3 +164,19 @@ else
     sudo installer -pkg /tmp/zoomusInstaller.pkg -target /
     rm /tmp/zoomusInstaller.pkg
 fi
+
+if [[ $(command -v rancher-desktop) ]]; then
+  echo "Rancher Desktop is already installed"
+else
+  # Download the Rancher Desktop .dmg file
+  curl -LO https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.11.1/rancher-desktop-darwin-amd64.tar.gz
+
+  # Extract the contents of the .dmg file
+  hdiutil attach rancher-desktop-darwin-amd64.tar.gz
+
+  # Copy the Rancher Desktop.app file to the /Applications directory
+  cp -R /Volumes/Rancher\ Desktop/Rancher\ Desktop.app /Applications/
+
+  # Eject the mounted .dmg file
+  hdiutil detach /Volumes/Rancher\ Desktop/
+fi

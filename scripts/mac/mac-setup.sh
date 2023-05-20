@@ -13,7 +13,7 @@ else
   echo "Moving on then."
 fi
 
-cd ~
+cd $HOME
 
 if ! [ -d "${HOME}/projects" ]; then
   echo "Creating projects directory!"

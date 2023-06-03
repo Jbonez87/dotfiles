@@ -135,6 +135,9 @@ alias npminit="npm init -y"
 
 alias remove_node_modules="cd ~/projects & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
 
+alias mong0d="mongod --port 27017 --dbpath  /usr/local/var/mongodb"
+alias mconfigfile="cd /usr/local/etc/mongod.conf"
+
 # =================
 # Functions
 # =================

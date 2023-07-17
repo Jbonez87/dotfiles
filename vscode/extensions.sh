@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # check if code command is available
 if ! command -v code &> /dev/null

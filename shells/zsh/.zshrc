@@ -131,6 +131,7 @@ alias remove_node_modules="cd ~/projects & find . -name 'node_modules' -type d -
 
 alias mong0d="mongod --port 27017 --dbpath  /usr/local/var/mongodb"
 alias mconfigfile="cd /usr/local/etc/mongod.conf"
+alias b64Token=node -e "require('readline') .createInterface({input:process.stdin,output:process.stdout,historySize:0}) .question('PAT> ',p => { b64=Buffer.from(p.trim()).toString('base64');console.log(b64);process.exit(); })"
 
 # =================
 # Functions

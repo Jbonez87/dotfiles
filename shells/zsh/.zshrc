@@ -273,6 +273,10 @@ function deleteAllBranchesExceptMainForce() {
     git branch | grep -v '^*' | xargs git branch -D
 }
 
+function encode_to_base64() {
+  echo -n "$1" | base64
+}
+
 setopt nocaseglob
 
 setopt cdspell

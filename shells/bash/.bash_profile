@@ -283,6 +283,10 @@ function encode_to_base64() {
   echo -n "$1" | base64
 }
 
+# This only applies to windows machines
+# export PS1='\[\033[36m\]\u\[\033[0m\] \[\033[32m\]\w\[\033[0m\] \[\033[38;5;88m\]$(__git_ps1 "(%s) ")\[\033[0;38;5;178m\]\$\[\033[0m\] '
+
+
 # export PS1="\[\033[36;40m\]\u\[\033[32m\] \w \[\033[31m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
 
 # export PS1='\[\033[36m\]\u\[\033[0m\] \[\033[32m\]\w\[\033[0m\] \[\033[38;5;88m\]$(__git_ps1 "(%s) ")\[\033[0;38;5;178m\]\$\[\033[0m\] '

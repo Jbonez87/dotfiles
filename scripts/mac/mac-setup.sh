@@ -21,13 +21,6 @@ select script_choice in yes no; do
   esac
 done
 
-if [[ $response == "Yes" || $response == "y" || $response == "Y" || $response == "yes" ]]; then
-  echo "Running app defaults script!"
-  bash $DEFAULT_APPS_SCRIPT
-else
-  echo "Moving on then."
-fi
-
 cd $HOME
 
 if ! [ -d "${HOME}/projects" ]; then

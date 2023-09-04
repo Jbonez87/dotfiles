@@ -5,6 +5,35 @@ ZSHENV="../shells/.zshenv"
 ZSHRC="../shells/.zshrc"
 
 echo "Do you prefer bash or zsh? (Please answer bash or zsh to run or press enter to skip.)"
+select shell_choice in bash zsh; do
+  case $shell_choice in
+    "bash")
+        echo "Bash selected!"
+        chsh -s /bin/bash
+        if ! [ -f $HOME/.bash_profile ]; then
+            echo "Copying over bash_profile template!"
+            cp $BASH_PROFILE $HOME
+            source $HOME/.bash_profile
+        else
+            echo "Sourcing bash_profile!"
+            source $HOME/.bash_profile
+        fi
+      break
+    ;;
+    "zsh")
+        echo "Zsh selected!"
+        chsh -s /bin/zsh
+        if ! [[ -f $HOME/.zshenv && -f $HOME/.zshrc ]]; then
+            cp $ZSHENV $HOME
+            cp $ZSHRC $HOME
+        fi
+      break
+    ;;
+    *)
+      echo "Invalid choice"
+    ;;
+  esac
+done
 read -p "Preferred shell is:" preferred
 
 if [ $preferred == "bash" ]; then

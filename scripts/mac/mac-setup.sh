@@ -3,8 +3,23 @@
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 DEFAULT_APPS_SCRIPT="./default-apps.sh"
 
-echo "Run app defaults script first? (Please answer Yes, yes, y or Y to run)"
-read -p "Response is: " response
+echo "Run app defaults script first? (Please answer Yes or No)"
+select script_choice in yes no; do
+  case $script_choice in
+    "yes")
+      echo "Running app defaults script!"
+      bash $DEFAULT_APPS_SCRIPT
+      break
+    ;;
+    "no")
+      echo "Moving on then."
+      break
+    ;;
+    *)
+      echo "Invalid choice"
+    ;;
+  esac
+done
 
 if [[ $response == "Yes" || $response == "y" || $response == "Y" || $response == "yes" ]]; then
   echo "Running app defaults script!"

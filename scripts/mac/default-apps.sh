@@ -30,33 +30,12 @@ select shell_choice in bash zsh; do
       break
     ;;
     *)
-      echo "Invalid choice"
+      echo "Moving on then."
+      break
     ;;
   esac
 done
-read -p "Preferred shell is:" preferred
 
-if [ $preferred == "bash" ]; then
-  echo "Bash selected!"
-  chsh -s /bin/bash
-  if ! [ -f $HOME/.bash_profile ]; then
-    echo "Copying over bash_profile template!"
-    cp $BASH_PROFILE $HOME
-    source $HOME/.bash_profile
-  else
-    echo "Sourcing bash_profile!"
-    source $HOME/.bash_profile
-  fi
-elif [ $preferred == "zsh" ]; then
-  echo "Zsh selected!"
-  chsh -s /bin/zsh
-  if ! [[ -f $HOME/.zshenv && -f $HOME/.zshrc ]]; then
-    cp $ZSHENV $HOME
-    cp $ZSHRC $HOME
-  fi
-else
-  echo "Moving on then."
-fi
 
 # Check if xcode-select is installed
 if xcode-select --version >/dev/null 2>&1; then

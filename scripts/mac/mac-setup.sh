@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
-DEFAULT_APPS_SCRIPT="./default-apps.sh"
+DEFAULT_APPS_SCRIPT="$SCRIPTDIR/default-apps.sh"
 
 echo "Run app defaults script first? (Please answer Yes or No)"
 select script_choice in yes no; do

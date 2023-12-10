@@ -136,3 +136,18 @@ dist
 .npmrc
 
 build/reports
+
+**/.DS_Store
+.settings
+*.pem
+
+# IDEs
+**/.vs
+!**/.vscode/tasks.json
+!**/.vscode/settings.template.json
+!**/.vscode/launch.template.json
+!**/.vscode/extensions.json
+.idea
+
+# Optional npm cache directory
+.npm

@@ -139,8 +139,9 @@ alias mong0d="mongod --port 27017 --dbpath  /usr/local/var/mongodb"
 alias mconfigfile="cd /usr/local/etc/mongod.conf"
 alias b64Token="node -e \"require('readline') .createInterface({input:process.stdin,output:process.stdout,historySize:0}) .question('PAT> ',p => { b64=Buffer.from(p.trim()).toString('base64');console.log(b64);process.exit(); })\""
 
-ssh-add --apple-use-keychain ~/.ssh/YOUR_PERSONAL_SSH
-ssh-add --apple-use-keychain ~/.ssh/YOUR_WORK_SSH
+# Only enable these if you are using this machine for personal and work projects.
+# ssh-add --apple-use-keychain ~/.ssh/YOUR_PERSONAL_SSH
+# ssh-add --apple-use-keychain ~/.ssh/YOUR_WORK_SSH
 
 # =================
 # Functions

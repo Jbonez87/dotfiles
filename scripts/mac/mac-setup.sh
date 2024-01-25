@@ -3,7 +3,7 @@
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 DEFAULT_APPS_SCRIPT="$SCRIPTDIR/default-apps.sh"
 
-echo "Run app defaults script first? (Please answer Yes or No)"
+echo "Run app defaults script first? (Please choose Yes or No)"
 select script_choice in yes no; do
   case $script_choice in
     "yes")
@@ -31,9 +31,23 @@ else
 fi
 
 if ! [ -x "$(command -v brew)" ]; then
-  echo "Brew not found"
-  echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Brew not found. Would you like to install Homebrew?"
+  select $brew_choice in yes no; do
+    case $brew_choice in
+      "yes")
+        echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        break
+      ;;
+      "no")
+        echo "Skipping Homebrew installation then."
+      ;;
+      *)
+        echo "Invalid choice."
+      ;;
+    esac
+  done
+  
 else
   echo "Updating Homebrew!"
   brew update

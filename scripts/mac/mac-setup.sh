@@ -35,7 +35,9 @@ if ! [ -x "$(command -v brew)" ]; then
   select $brew_choice in yes no; do
     case $brew_choice in
       "yes")
-        echo "Installing homebrew! Install Xcode Command Line Tools when prompted!"
+        echo "Installing Xcode Command Line Tools first! Please accept when prompted."
+        xcode-select --install
+        echo "Installing homebrew!"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         break
       ;;

@@ -37,38 +37,51 @@ if ! [ -x "$(command -v brew)" ]; then
       "yes")
         echo "Installing Xcode Command Line Tools first! Please accept when prompted."
         xcode-select --install
+
         echo "Installing homebrew!"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        echo "Would you like to check for an existing Brewfile and run brew bundle?"
+        select $brewfile_choice in yes no; do
+          case $brewfile_choice in
+            "yes")
+              echo "Checking for Brewfile and installing core packages!"
+              if [ -f $HOME/Brewfile ]; then
+                echo "Brewfile already exists"
+                cd $HOME
+                brew bundle
+                echo "Brewfile processed!"
+              else
+                echo "Copying over Brewfile!"
+                unzip $SCRIPTDIR/Brewfile.zip
+                mv $SCRIPTDIR/Brewfile $HOME
+                brew bundle
+              fi
+              break
+            ;;
+            "no")
+              echo "Skipping brew bundle then."
+              break
+            ;;
+            *)
+              echo "Invalid choice"
+            ;;
+          esac
+        done
         break
       ;;
       "no")
         echo "Skipping Homebrew installation then."
+        break
       ;;
       *)
         echo "Invalid choice."
       ;;
     esac
   done
-  
 else
   echo "Updating Homebrew!"
   brew update
-fi
-
-echo "Checking for Brewfile and installing core packages!"
-
-if [ -f $HOME/Brewfile ]; then
-  echo "Brewfile already exists"
-  cd ~
-  echo "Run brew bundle? (Please answer Yes, yes, y or Y to run)"
-  read -p "Answer is: " answer
-  [[ $answer == "Yes" || $answer == "y" || $answer == "Y" || $answer == "yes" ]] && brew bundle
-  echo "Brewfile processed!"
-else
-  echo "Copying over Brewfile!"
-  unzip $SCRIPTDIR/Brewfile.zip
-  mv $SCRIPTDIR/Brewfile ~
-  brew bundle
 fi
 
 if ! [ -d "${HOME}/.nvm/.git" ]; then

@@ -2,6 +2,7 @@
 
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
 DEFAULT_APPS_SCRIPT="$SCRIPTDIR/default-apps.sh"
+HOMEBREW_SCRIPT="$SCRIPTDIR/utils/homebrew.sh"
 
 echo "Run app defaults script first? (Please choose Yes or No)"
 select script_choice in yes no; do
@@ -25,9 +26,9 @@ cd $HOME
 
 if ! [ -d "${HOME}/projects" ]; then
   echo "Creating projects directory!"
-  mkdir ~/projects
+  mkdir $HOME/projects
 else
-  echo "~/projects directory already exists!"
+  echo "$HOME/projects directory already exists!"
 fi
 
 if ! [ -x "$(command -v brew)" ]; then
@@ -35,39 +36,7 @@ if ! [ -x "$(command -v brew)" ]; then
   select $brew_choice in yes no; do
     case $brew_choice in
       "yes")
-        echo "Installing Xcode Command Line Tools first! Please accept when prompted."
-        xcode-select --install
-
-        echo "Installing homebrew!"
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-        echo "Would you like to check for an existing Brewfile and run brew bundle?"
-        select $brewfile_choice in yes no; do
-          case $brewfile_choice in
-            "yes")
-              echo "Checking for Brewfile and installing core packages!"
-              if [ -f $HOME/Brewfile ]; then
-                echo "Brewfile already exists"
-                cd $HOME
-                brew bundle
-                echo "Brewfile processed!"
-              else
-                echo "Copying over Brewfile!"
-                unzip $SCRIPTDIR/Brewfile.zip
-                mv $SCRIPTDIR/Brewfile $HOME
-                brew bundle
-              fi
-              break
-            ;;
-            "no")
-              echo "Skipping brew bundle then."
-              break
-            ;;
-            *)
-              echo "Invalid choice"
-            ;;
-          esac
-        done
+        bash $HOMEBREW_SCRIPT
         break
       ;;
       "no")

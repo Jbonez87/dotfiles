@@ -108,7 +108,7 @@ if [ -f $HOME/.ssh/work ]; then
 else
   ssh-keygen -t ed25519 -C "$work_email" -f "$HOME/.ssh/work"
 
-  echo "Adding your personal ssh key to your identity!"
+  echo "Adding your work ssh key to your identity!"
   ssh-add ~/.ssh/work
 fi
 

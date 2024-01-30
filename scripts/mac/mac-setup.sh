@@ -50,7 +50,7 @@ if ! [ -x "$(command -v brew)" ]; then
   done
 else
   echo "Updating Homebrew!"
-  brew update
+  brew upgrade
 fi
 
 if ! [ -d "${HOME}/.nvm/.git" ]; then

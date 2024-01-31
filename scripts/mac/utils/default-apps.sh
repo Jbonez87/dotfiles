@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-BASH_PROFILE="../shells/.bash_profile"
-ZSHENV="../shells/.zshenv"
-ZSHRC="../shells/.zshrc"
+BASH_PROFILE="../../shells/.bash_profile"
+ZSHENV="../../shells/.zshenv"
+ZSHRC="../../shells/.zshrc"
 
 echo "Do you prefer bash or zsh? (Please answer bash or zsh to run or press enter to skip.)"
 select shell_choice in bash zsh; do

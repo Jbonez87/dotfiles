@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 SCRIPTDIR=`cd "$(dirname "$0")" && pwd`
-DEFAULT_APPS_SCRIPT="$SCRIPTDIR/default-apps.sh"
+DEFAULT_APPS_SCRIPT="$SCRIPTDIR/utils/default-apps.sh"
 HOMEBREW_SCRIPT="$SCRIPTDIR/utils/homebrew.sh"
 
 echo "Run app defaults script first? (Please choose Yes or No)"

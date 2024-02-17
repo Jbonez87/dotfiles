@@ -50,8 +50,22 @@ if ! [ -x "$(command -v brew)" ]; then
     esac
   done
 else
-  echo "Updating Homebrew!"
-  brew upgrade
+  echo "Homebrew is already installed! Would you like to update it?"
+  select update_choice in yes no; do
+    case $update_choice in
+      "yes")
+        brew upgrade
+        break
+      ;;
+      "no")
+        echo "Skipping Homebrew update then."
+        break
+      ;;
+      *)
+        echo "Invalid choice."
+      ;;
+    esac
+  done
 fi
 
 if ! [ -d "${HOME}/.nvm/.git" ]; then

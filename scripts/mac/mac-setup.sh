@@ -70,7 +70,7 @@ fi
 
 if ! [ -d "${HOME}/.nvm/.git" ]; then
   echo "Installing NVM!"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 else
   echo "NVM already installed!"
 fi
@@ -114,6 +114,6 @@ select ssh_choice in yes no; do
         echo "Invalid choice."
       ;;
     esac
-  done 
+  done
 
 echo "Mac setup complete!"

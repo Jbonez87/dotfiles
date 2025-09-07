@@ -78,9 +78,6 @@ alias rundev='npm run dev'
 
 alias cleanup_packages='rm -Rf node_modules package-lock.json'
 
-# Runs create-react-app scripts
-alias cra='npx create-react-app'
-
 # update npm
 alias npmup='npm i -g npm'
 

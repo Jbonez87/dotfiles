@@ -67,9 +67,6 @@ alias projects='cd ~/projects/'
 #Quickly add my applications to my applications folder
 alias afolder='open ~/Applications/'
 
-# Allows me to pull from WDI repo
-alias gpum='git pull upstream master'
-
 # Runs local mongo instance with correct db path
 alias m0ngod='mongod --config /usr/local/etc/mongod.conf'
 
@@ -95,12 +92,6 @@ alias gitchat='open -a Gitter'
 alias itunes='open -a itunes'
 alias xcode='open -a xcode'
 
-# Creates boilerplate files for app creation
-alias tih='touch index.html'
-alias sjs='touch server.js'
-alias ijs='touch index.js'
-alias wpc='touch webpack.config.js'
-
 # Make edits to .bash_profile and refresh .bash_profile
 alias c.='code .'
 alias cbp='code ~/.bash_profile'
@@ -118,18 +109,12 @@ alias reload="clear; source ~/.bash_profile"
 ### Open apps
 alias chrome='open -a Google Chrome'
 alias safari='open -a Safari'
-
-alias get_homebrew='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
-
-alias rctrdx='npm i react react-dom prop-types redux react-redux redux-thunk redux-logger'
-
-alias wp='npm i -D webpack webpack-dev-server babel-core babel-loader babel-preset-env babel-preset-react babel-plugin-transform-object-rest-spread babel-preset-stage-0'
+alias brave='open -a Brave'
 
 alias npminit="npm init -y"
 
 alias remove_node_modules="cd ~/projects & find . -name 'node_modules' -type d -prune -exec rm -Rf '{}' +"
 
-alias mong0d="mongod --port 27017 --dbpath  /usr/local/var/mongodb"
 alias mconfigfile="cd /usr/local/etc/mongod.conf"
 alias b64Token="node -e \"require('readline') .createInterface({input:process.stdin,output:process.stdout,historySize:0}) .question('PAT> ',p => { b64=Buffer.from(p.trim()).toString('base64');console.log(b64);process.exit(); })\""
 
@@ -159,28 +144,6 @@ allow_group() {
   sudo mkdir -p "$TARGET_DIR"
   sudo /bin/chmod -R -N "$TARGET_DIR"
   sudo /bin/chmod -R +a "group:$GROUP_NAME:allow $PERMISSIONS,$INHERITANCE" "$TARGET_DIR"
-}
-
-make_simple_react() {
-  mkdir "$1" 
-  cd "$1"
-  npminit
-  rctrdx
-  wp
-  wpc
-  mkdir "src"
-  cd "src/"
-  mkdir "static"
-  cd "static"
-  tih
-  cd ".."
-  ijs
-  mkdir "components"
-  cd "components/"
-  touch "App.js"
-  cd "../.."
-  c.
-  echo -e "$1 project created"
 }
 
 #######################################
@@ -262,7 +225,7 @@ autoload -Uz compinit && compinit
 
 function deleteAllBranchesExceptMaster() {
     git checkout master
-    git branch | grep -v '^*' | xargs git branch -d 
+    git branch | grep -v '^*' | xargs git branch -d
 }
 function deleteAllBranchesExceptMasterForce() {
     git checkout master
@@ -270,7 +233,7 @@ function deleteAllBranchesExceptMasterForce() {
 }
 function deleteAllBranchesExceptMain() {
     git checkout master
-    git branch | grep -v '^*' | xargs git branch -d 
+    git branch | grep -v '^*' | xargs git branch -d
 }
 function deleteAllBranchesExceptMainForce() {
     git checkout master

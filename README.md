@@ -10,6 +10,7 @@
 6. [Scripts](#scripts)
 7. [Shells](#shells)
 8. [VS Code](#vs-code)
+9. [Zed](#zed)
 
 ## Introduction
 
@@ -26,7 +27,7 @@ To run the `mac-setup.sh` script:
 The `mac-setup.sh` script will do the following:
 
 1. Create a `~/projects` directory for you
-2. Optionally runs the [default-apps](./scripts/default-apps.sh) script.
+2. Optionally runs the [default-apps](./scripts/mac/utils/default-apps.sh) script.
 
    a. Answer `yes` to run the `default-apps.sh` script.
 
@@ -72,3 +73,7 @@ This is where the [bash_profile](./shells/bash/.bash_profile), [zshrc](./shells/
 ## VS Code
 
 All VS Code snippets, settings and launch JSON files will be stored here.
+
+## Zed
+
+All Zed settings will be stored here.

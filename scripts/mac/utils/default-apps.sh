@@ -56,7 +56,7 @@ else
     hdiutil mount googlechrome.dmg
     sudo /Volumes/Google\ Chrome/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --install
     sudo mv "/Volumes/Google Chrome/Google Chrome.app" "/Applications/"
-    open -a "Google Chrome" --args --make-default-browser
+    open -a "Google Chrome"
     hdiutil unmount /Volumes/Google\ Chrome
     rm googlechrome.dmg
 fi
@@ -74,17 +74,42 @@ else
     rm slack.dmg
 fi
 
-# Check if VS Code is installed
-if [ -d "/Applications/Visual Studio Code.app" ]; then
-    echo "VS Code is already installed."
-else
-    echo "Installing VS Code!"
-    # Install Visual Studio Code
-    curl -L -o vscode.zip "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
-    unzip vscode.zip
-    rm vscode.zip
-    mv "Visual Studio Code.app" /Applications/
-fi
+echo "Which editor do you want to use?"
+select editor in "VS Code" "Zed"; do
+    case $editor in
+        "VS Code")
+            # Check if VS Code is installed
+            if [ -d "/Applications/Visual Studio Code.app" ]; then
+                echo "VS Code is already installed."
+            else
+                echo "Installing VS Code!"
+                # Install Visual Studio Code
+                curl -L -o vscode.zip "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
+                unzip vscode.zip
+                rm vscode.zip
+                mv "Visual Studio Code.app" /Applications/
+            fi
+            break
+            ;;
+        "Zed")
+            # Check if Zed is installed
+            if [ -d "/Applications/Zed.app" ]; then
+                echo "Zed is already installed."
+            else
+                echo "Installing Zed!"
+                # Install Zed
+                curl -L -o zed.zip "https://zed.dev/download/mac"
+                unzip zed.zip
+                rm zed.zip
+                mv "Zed.app" /Applications/
+            fi
+            break
+            ;;
+        *)
+          echo "Invalid choice"
+        ;;
+    esac
+done
 
 # Check if Postman is installed
 if [ -d "/Applications/Postman.app" ]; then
@@ -107,6 +132,7 @@ else
     curl -L -o brave.dmg "https://laptop-updates.brave.com/latest/osx"
     hdiutil mount brave.dmg
     cp -R "/Volumes/Brave Browser/Brave Browser.app" /Applications/
+    open -a "Brave Browser" --args --make-default-browser
     hdiutil unmount "/Volumes/Brave Browser"
     rm brave.dmg
 fi
